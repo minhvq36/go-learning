@@ -14,3 +14,7 @@ func NewUser(name string, age int) User {
 func (u User) Greet() {
 	fmt.Printf("Hello, %s\n", u.Name)
 }
+
+func (u *User) IncreaseAge() {
+	u.Age++
+}

@@ -240,6 +240,30 @@ Cancelled
 
 ---
 
+## Project Architecture (Core Files and Folders)
+
+```
+go.mod
+README.md
+ai/
+	CONTEXT_PROCESS.md
+	SKILLS.md
+cmd/
+	hello/
+		main.go
+internal/
+	maps/
+		exercise.go
+	maths/
+		calc.go
+	models/
+		user.go
+	slice/
+		exercise.go
+```
+
+---
+
 ## Notes
 
 * Exercises should remain small and focused.
