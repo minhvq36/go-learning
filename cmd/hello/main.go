@@ -18,5 +18,5 @@ func main() {
 	slice.RunExercise()
 	maps.RunExercise()
 	user := models.NewUser("Alice", 25)
-	models.Greet(user)
+	user.Greet()
 }

@@ -7,10 +7,10 @@ type User struct {
 	Age  int
 }
 
-func Greet(u User) {
-	fmt.Printf("Hello, %s\n", u.Name)
-}
-
 func NewUser(name string, age int) User {
 	return User{Name: name, Age: age}
+}
+
+func (u User) Greet() {
+	fmt.Printf("Hello, %s\n", u.Name)
 }
