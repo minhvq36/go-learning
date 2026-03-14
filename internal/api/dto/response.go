@@ -20,3 +20,13 @@ type ApiResponse[T any] struct {
 type HelloResponse struct {
 	Message string `json:"message"`
 }
+
+type UserResponse struct {
+	Id   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+type NoteResponse struct {
+	NoteId  string `json:"note_id"`
+	Content string `json:"content"`
+}

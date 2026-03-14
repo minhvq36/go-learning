@@ -9,13 +9,15 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/hello", api.HelloHandler)
+	mux := http.NewServeMux()
+	api.RegisterRoutes(mux)
 
-	port := ":8080"
-	fmt.Printf("Starting HTTP server on port %s...\n", port)
-	err := http.ListenAndServe(port, nil)
-
-	if err != nil {
-		log.Fatal(err)
+	port := 8080
+	server := &http.Server{
+		Addr:    fmt.Sprintf(":%d", port),
+		Handler: mux,
 	}
+
+	fmt.Printf("Starting server on :%d", port)
+	log.Fatal(server.ListenAndServe())
 }
