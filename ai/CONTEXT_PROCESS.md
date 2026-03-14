@@ -109,20 +109,20 @@ Expected output:
 
 ---
 
-## Next Tasks
-
-The next exercises continue expanding Go fundamentals.
-
 ### Exercise 4 — Map Basics
 
 Goal:
 Use a map to store student scores.
 
-Requirements:
+Concepts learned:
 
-* map[string]int
-* at least two initial students
-* add one additional student
+* map literal initialization
+* inserting values into a map
+* iterating or printing map content
+
+Example:
+
+map[string]int
 
 Expected output:
 
@@ -135,18 +135,17 @@ map[Alice:90 Bob:85 Carol:78]
 Goal:
 Define a struct and attach a method.
 
-Requirements:
+Concepts learned:
 
-Struct:
+* struct definition
+* method receivers
+* basic object-like behavior in Go
 
-User {
-Name string
-Age  int
-}
+Example:
 
-Method:
+User struct with method:
 
-Greet() string
+Greet()
 
 Expected output:
 
@@ -159,11 +158,15 @@ Hello, Alice
 Goal:
 Modify struct data using a pointer.
 
-Requirements:
+Concepts learned:
 
-Function:
+* pointer receiver
+* struct mutation
+* Go method call auto-addressing
 
-IncreaseAge(u *User)
+Example:
+
+IncreaseAge()
 
 Expected output:
 
@@ -177,14 +180,15 @@ Age after: 21
 Goal:
 Return an error when dividing by zero.
 
-Requirements:
+Concepts learned:
 
-func divide(a, b int) (int, error)
+* multiple return values
+* error interface
+* basic error handling pattern
 
-Expected output:
+Function:
 
-Result: 2
-Cannot divide by zero
+func Divide(a, b int) (int, error)
 
 ---
 
@@ -193,12 +197,13 @@ Cannot divide by zero
 Goal:
 Run code concurrently using goroutines.
 
-Requirements:
+Concepts learned:
 
-* use go keyword
-* main waits using time.Sleep
+* go keyword
+* goroutine execution model
+* basic synchronization using time.Sleep
 
-Expected output:
+Example output:
 
 Hello from main
 Hello from goroutine
@@ -212,13 +217,14 @@ Hello from goroutine
 Goal:
 Send data from a goroutine to main.
 
-Requirements:
+Concepts learned:
 
-* create channel
-* send value from goroutine
-* receive in main
+* channel creation
+* send / receive operations
+* blocking synchronization
+* directional channels
 
-Expected output:
+Example output:
 
 Received: 42
 
@@ -229,12 +235,13 @@ Received: 42
 Goal:
 Cancel a goroutine after a timeout.
 
-Requirements:
+Concepts learned:
 
-* context.WithTimeout (1 second)
-* goroutine listens for ctx.Done()
+* context.WithTimeout
+* cancellation propagation
+* select with multiple signals
 
-Expected output:
+Example output:
 
 Cancelled
 
@@ -246,52 +253,66 @@ Cancelled
 go.mod
 README.md
 ai/
-	CONTEXT_PROCESS.md
-	SKILLS.md
+    CONTEXT_PROCESS.md
+    SKILLS.md
+
 cmd/
-	hello/
-		main.go
+    hello/
+        main.go
+
 internal/
-	maps/
-		exercise.go
-	maths/
-		calc.go
-	models/
-		user.go
-	slice/
-		exercise.go
+    maps/
+        exercise.go
+
+    maths/
+        calc.go
+
+    models/
+        user.go
+
+    slice/
+        exercise.go
 ```
 
 ---
 
-## Notes
+## Key Concepts Learned
 
-* Exercises should remain small and focused.
-* Each exercise should be placed in its own folder under cmd/.
-* Code clarity is more important than optimization at this stage.
+Through the exercises, the following Go core primitives have been covered:
 
-Example structure:
+* Go module structure
+* functions and return values
+* slices and maps
+* structs and methods
+* pointer receivers
+* error handling patterns
+* goroutines
+* channels
+* context cancellation
 
-cmd/
+These concepts form the foundation of most Go backend systems.
 
-hello/
-main.go
+---
 
-sum/
-main.go
+## Next Learning Direction
 
-slice/
-main.go
+After completing the first 10 exercises, the next step is to explore deeper Go runtime and concurrency behavior.
 
-map/
-main.go
+Planned topics:
+
+* goroutine scheduling
+* blocking channel behavior
+* context propagation across layers
+* memory escape analysis
+
+These topics will help understand how Go behaves internally and how to write efficient concurrent systems.
 
 ---
 
 ## Current Status
 
-Completed: 3 / 10 exercises
+Completed: 10 / 10 exercises
 
 Next step:
 
-Start implementing Exercise 4 — Map Basics.
+Move from basic language exercises to deeper Go runtime concepts and concurrency behavior.
