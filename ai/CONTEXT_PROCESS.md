@@ -253,25 +253,26 @@ Cancelled
 go.mod
 README.md
 ai/
-    CONTEXT_PROCESS.md
-    SKILLS.md
-
+	CONTEXT_PROCESS.md
+	SKILLS.md
 cmd/
-    hello/
-        main.go
-
+	gocore/
+		main.go
+	goroutine/
+		main.go
+	hello/
+		main.go
 internal/
-    maps/
-        exercise.go
-
-    maths/
-        calc.go
-
-    models/
-        user.go
-
-    slice/
-        exercise.go
+	maps/
+		exercise.go
+	maths/
+		calc.go
+	models/
+		user.go
+	shapes/
+		interface.go
+	slice/
+		exercise.go
 ```
 
 ---
