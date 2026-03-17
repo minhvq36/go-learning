@@ -33,7 +33,7 @@ func main() {
 
 	select {
 	case val := <-ch:
-		fmt.Printf("Received: %d", val)
+		fmt.Printf("Received: %d\n", val)
 	case <-ctx.Done():
 		fmt.Println("Cancelled")
 	}

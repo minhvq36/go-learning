@@ -9,5 +9,8 @@ import "net/http"
 func RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /hello", HelloHandler)
 	mux.HandleFunc("GET /user", UserHandler)
-	mux.HandleFunc("GET /notes/{id}", GetNoteHandler)
+	mux.HandleFunc("GET /notes/{note_id}", GetNoteHandler)
+	mux.HandleFunc("POST /notes", CreateNoteHandler)
 }
+
+// TODO: Split routes into separates for better organization (e.g., user_routes.go, note_routes.go)

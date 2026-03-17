@@ -18,6 +18,6 @@ func main() {
 		Handler: mux,
 	}
 
-	fmt.Printf("Starting server on :%d", port)
+	fmt.Printf("Starting server on :%d\n", port)
 	log.Fatal(server.ListenAndServe())
 }

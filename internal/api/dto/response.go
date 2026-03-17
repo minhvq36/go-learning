@@ -28,5 +28,6 @@ type UserResponse struct {
 
 type NoteResponse struct {
 	NoteId  string `json:"note_id"`
+	Title   string `json:"title"`
 	Content string `json:"content"`
 }

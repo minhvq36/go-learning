@@ -12,7 +12,7 @@ func sendJSON[T any](w http.ResponseWriter, status int, body dto.ApiResponse[T])
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
 	if err := json.NewEncoder(w).Encode(body); err != nil {
-		log.Printf("ERROR: Failed to encode JSON response: %v", err)
+		log.Printf("ERROR: Failed to encode JSON response: %v\n", err)
 	}
 
 }
