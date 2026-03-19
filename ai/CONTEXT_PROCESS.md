@@ -61,10 +61,6 @@ Concepts learned:
 * using the fmt package
 * main package and entry point
 
-Expected output:
-
-Hello, Go
-
 ---
 
 ### Exercise 2 — Sum Two Numbers
@@ -77,14 +73,6 @@ Concepts learned:
 * defining functions
 * parameters
 * return values
-
-Function signature:
-
-sum(a, b int) int
-
-Expected output:
-
-5
 
 ---
 
@@ -99,14 +87,6 @@ Concepts learned:
 * append operation
 * printing slices
 
-Example slice:
-
-[]int{1,2,3}
-
-Expected output:
-
-[1 2 3 4]
-
 ---
 
 ### Exercise 4 — Map Basics
@@ -119,14 +99,6 @@ Concepts learned:
 * map literal initialization
 * inserting values into a map
 * iterating or printing map content
-
-Example:
-
-map[string]int
-
-Expected output:
-
-map[Alice:90 Bob:85 Carol:78]
 
 ---
 
@@ -141,16 +113,6 @@ Concepts learned:
 * method receivers
 * basic object-like behavior in Go
 
-Example:
-
-User struct with method:
-
-Greet()
-
-Expected output:
-
-Hello, Alice
-
 ---
 
 ### Exercise 6 — Pointer
@@ -163,15 +125,6 @@ Concepts learned:
 * pointer receiver
 * struct mutation
 * Go method call auto-addressing
-
-Example:
-
-IncreaseAge()
-
-Expected output:
-
-Age before: 20
-Age after: 21
 
 ---
 
@@ -186,10 +139,6 @@ Concepts learned:
 * error interface
 * basic error handling pattern
 
-Function:
-
-func Divide(a, b int) (int, error)
-
 ---
 
 ### Exercise 8 — Simple Goroutine
@@ -202,13 +151,6 @@ Concepts learned:
 * go keyword
 * goroutine execution model
 * basic synchronization using time.Sleep
-
-Example output:
-
-Hello from main
-Hello from goroutine
-
-(order may vary)
 
 ---
 
@@ -224,10 +166,6 @@ Concepts learned:
 * blocking synchronization
 * directional channels
 
-Example output:
-
-Received: 42
-
 ---
 
 ### Exercise 10 — Basic Context
@@ -241,9 +179,107 @@ Concepts learned:
 * cancellation propagation
 * select with multiple signals
 
-Example output:
+---
 
-Cancelled
+### Exercise 11 — Interface
+
+Concepts learned:
+
+* interface design
+* implicit implementation
+* polymorphism in Go
+
+---
+
+### Exercise 12 — JSON Encode/Decode
+
+Concepts learned:
+
+* json.Marshal / json.Unmarshal
+* struct tags
+* API data format handling
+
+---
+
+### Exercise 13 — File I/O
+
+Concepts learned:
+
+* os.ReadFile / os.WriteFile
+* []byte <-> string conversion
+* basic persistence pattern
+
+---
+
+### Exercise 14 — HTTP Server
+
+Concepts learned:
+
+* net/http
+* http.Handler
+* basic server setup
+
+---
+
+### Exercise 15 — HTTP JSON API
+
+Concepts learned:
+
+* JSON response handling
+* API design basics
+* response structuring
+
+---
+
+### Exercise 16 — Simple Router
+
+Concepts learned:
+
+* route handling
+* method checking
+* request parsing
+
+---
+
+### Exercise 17 — Worker Pool
+
+Concepts learned:
+
+* goroutine pool
+* job channel / result channel
+* fan-out / fan-in pattern
+* sync.WaitGroup coordination
+
+---
+
+### Exercise 18 — Rate Limiter
+
+Concepts learned:
+
+* time.Ticker
+* channel-based throttling
+* basic rate limiting pattern (local)
+
+---
+
+### Exercise 19 — Context Propagation
+
+Concepts learned:
+
+* passing context through layers
+* cancellation handling
+* request lifecycle awareness
+
+---
+
+### Exercise 20 — Graceful Shutdown
+
+Concepts learned:
+
+* signal.NotifyContext
+* http.Server.Shutdown
+* graceful shutdown lifecycle
+* context-driven cancellation in handlers
 
 ---
 
@@ -256,23 +292,53 @@ ai/
 	CONTEXT_PROCESS.md
 	SKILLS.md
 cmd/
+	context_demo/
+		main.go
+	file_io/
+		main.go
 	gocore/
 		main.go
 	goroutine/
 		main.go
 	hello/
 		main.go
+	http_server/
+		main.go
+	json_exercise/
+		main.go
+	limiter_demo/
+		main.go
+	worker_demo/
+		main.go
 internal/
+	api/
+		note_handler.go
+		router.go
+		routes.go
+		util.go
+	dto/
+			note.go
+			response.go
+	limiter/
+		litmiter.go
 	maps/
 		exercise.go
 	maths/
 		calc.go
 	models/
 		user.go
+	repository/
+		note_repo.go
+	service/
+		note_service.go
 	shapes/
 		interface.go
 	slice/
 		exercise.go
+	storage/
+		file.go
+	worker/
+		pool.go
 ```
 
 ---
@@ -290,6 +356,13 @@ Through the exercises, the following Go core primitives have been covered:
 * goroutines
 * channels
 * context cancellation
+* JSON encoding/decoding
+* file I/O operations
+* HTTP server and handlers
+* API response design
+* worker pool pattern
+* rate limiting (local)
+* graceful shutdown
 
 These concepts form the foundation of most Go backend systems.
 
@@ -297,23 +370,28 @@ These concepts form the foundation of most Go backend systems.
 
 ## Next Learning Direction
 
-After completing the first 10 exercises, the next step is to explore deeper Go runtime and concurrency behavior.
+Move from exercises to real backend systems.
 
-Planned topics:
+Planned:
 
-* goroutine scheduling
-* blocking channel behavior
-* context propagation across layers
-* memory escape analysis
-
-These topics will help understand how Go behaves internally and how to write efficient concurrent systems.
+* build mini backend projects (Notes API, Worker Queue)
+* apply concurrency patterns in real scenarios
+* introduce database layer (SQLite)
+* integrate Redis for caching / rate limiting
+* design handler → service → repository structure
 
 ---
 
 ## Current Status
 
-Completed: 10 / 10 exercises
+Completed: 20 / 20 exercises
+
+Current level:
+
+* solid Go fundamentals
+* intermediate concurrency understanding
+* ready for backend project implementation
 
 Next step:
 
-Move from basic language exercises to deeper Go runtime concepts and concurrency behavior.
+Start building mini backend projects (Stage 2)
