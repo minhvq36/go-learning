@@ -13,7 +13,7 @@ const (
 	WindowTime  = 10 * time.Second
 )
 
-func main() {
+func _() {
 	nums := []int{5, 5}
 	secondLargest, err := daily.SecondLargest(nums)
 	if err != nil {

@@ -2,6 +2,7 @@ package daily
 
 import (
 	"crypto/rand"
+	"errors"
 	"fmt"
 	"math"
 	"math/big"
@@ -44,22 +45,54 @@ func SecondLargest(nums []int) (int, error) {
 	return secondLargest, nil
 }
 
-func GeneratePassword(n int) (string, error) {
-	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+const (
+	lower = "abcdefghijklmnopqrstuvwxyz"
+	upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	digit = "0123456789"
+	all   = lower + upper + digit // not low performance because the allocation starts when compile time, not runtime
+)
 
-	/* Pre-allocate the byte slice for performance.
+func GeneratePassword(n int) (string, error) {
+	if n < 4 {
+		return "", errors.New("password length must be at least 4 to satisfy all requirements")
+	}
+
+	/* Pre-allocate for performance
 	 */
 	password := make([]byte, n)
-	charSetLen := big.NewInt(int64(len(letters)))
 
-	for i := range n {
-		/* Int returns a uniform random value in [0, max).
-		 */
+	/* 1. Đảm bảo ít nhất 1 ký tự cho mỗi group (Security Policy)
+	 */
+	groups := []string{lower, upper, digit}
+	for i, group := range groups {
+		idx, err := rand.Int(rand.Reader, big.NewInt(int64(len(group))))
+		if err != nil {
+			return "", err
+		}
+		password[i] = group[idx.Int64()]
+	}
+
+	/* 2. Lấp đầy những vị trí còn lại bằng tất cả các ký tự (Random Fill)
+	 */
+	charSetLen := big.NewInt(int64(len(all)))
+	for i := 3; i < n; i++ {
 		idx, err := rand.Int(rand.Reader, charSetLen)
 		if err != nil {
 			return "", err
 		}
-		password[i] = letters[idx.Int64()]
+		password[i] = all[idx.Int64()]
+	}
+
+	/* 3. SHUFFLE: Rất quan trọng để các ký tự bắt buộc không luôn nằm ở đầu
+	   Fisher-Yates Shuffle using crypto/rand
+	*/
+	for i := n - 1; i > 0; i-- {
+		jBig, err := rand.Int(rand.Reader, big.NewInt(int64(i+1)))
+		if err != nil {
+			return "", err
+		}
+		j := jBig.Int64()
+		password[i], password[j] = password[j], password[i]
 	}
 
 	return string(password), nil
